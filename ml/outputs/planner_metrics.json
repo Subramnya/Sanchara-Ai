@@ -1,0 +1,11 @@
+{
+  "trips": 300,
+  "routeSavingPctAvg": 28,
+  "withinBudgetOrBufferPct": 99.3,
+  "overBudgetTripsFixedByAIPct": 97.8,
+  "mealsInCorrectWindowPct": 100,
+  "nightsWithStayPct": 100,
+  "avgPlacesPerTrip": 6.3,
+  "planningMsMedian": 38,
+  "planningMsP95": 322
+}

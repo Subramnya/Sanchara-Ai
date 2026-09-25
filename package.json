@@ -1,0 +1,15 @@
+{
+  "name": "sanchara-ai",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sanchara.AI — personalised tourism recommendation system for Karnataka (places, routes, food by time, stays, budget + buffer).",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "fetch-images": "node scripts/fetch-images.js",
+    "validate": "node scripts/validate-data.js",
+    "test": "node scripts/smoke-test.js"
+  },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

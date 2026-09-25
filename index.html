@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sanchara.AI — Personalised Karnataka Travel Planner</title>
+  <meta name="description" content="AI-powered personalised tourism recommendations for Karnataka: places, routes, food by time of day, stays and budget — in English and Kannada." />
+  <meta name="theme-color" content="#1d2740" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="icon" href="assets/img/ui/icon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="assets/img/ui/icon-192.png" />
+  <link rel="stylesheet" href="assets/vendor/leaflet/leaflet.css" />
+  <link rel="stylesheet" href="assets/css/styles.css" />
+</head>
+<body>
+  <!-- ============ NAV ============ -->
+  <header class="nav" id="nav">
+    <div class="wrap">
+      <a class="brand" href="#/" id="brand" aria-label="Sanchara.AI home">
+        <span id="brandMark"></span>
+        <span><span class="brand-name">Sanchara<b>.AI</b></span><span class="brand-kn">ಸಂಚಾರ</span></span>
+      </a>
+      <nav class="nav-links" aria-label="Sections">
+        <a href="#quick" data-i18n="nav_explore">Explore</a>
+        <a href="#heritage" data-i18n="nav_heritage">Heritage</a>
+        <a href="#how" data-i18n="nav_how">How it works</a>
+        <a href="#features" data-i18n="nav_features">Features</a>
+      </nav>
+      <div class="nav-right">
+        <button class="lang-toggle" id="langBtn" aria-label="Switch language">ಕನ್ನಡ</button>
+        <button class="btn btn-primary btn-sm nav-cta" data-start data-i18n="get_started">Get Started</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============ LANDING ============ -->
+  <main class="landing" id="landing">
+    <section class="hero" id="top">
+      <div class="hero-art" id="heroArt"></div>
+      <div class="hero-slides" id="heroSlides"></div>
+      <div class="hero-skyline" id="heroSkyline" style="color:#120c07"></div>
+      <div class="wrap hero-inner">
+        <span class="eyebrow" data-i18n="hero_eyebrow">AI travel companion for Karnataka</span>
+        <h1 data-i18n="hero_title">Walk where <em>empires</em> once stood.</h1>
+        <p class="kn-line" data-i18n="hero_kn">ಕರ್ನಾಟಕವನ್ನು ನಿಮ್ಮದೇ ರೀತಿಯಲ್ಲಿ ಅನ್ವೇಷಿಸಿ</p>
+        <p class="lead" data-i18n="hero_lead"></p>
+        <div class="hero-cta">
+          <button class="btn btn-gold btn-lg" data-start><span data-i18n="get_started">Get Started</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
+          <button class="btn btn-glass btn-lg" id="demoBtn"><svg class="ic"><use href="#i-play"/></svg> <span data-i18n="hero_demo">Try: I'm at Hampi</span></button>
+        </div>
+        <div class="hero-caption"><div class="hero-dots" id="heroDots"></div><span id="heroName"></span></div>
+      </div>
+      <div class="scroll-cue">Scroll</div>
+    </section>
+
+    <section class="stats" aria-label="Highlights">
+      <div class="wrap">
+        <div class="stat"><b id="statDistricts">31</b><span data-i18n="stat_districts">districts covered</span></div>
+        <div class="stat"><b id="statPlaces">175</b><span data-i18n="stat_places">curated places</span></div>
+        <div class="stat"><b>4</b><span data-i18n="stat_unesco">UNESCO World Heritage sites</span></div>
+        <div class="stat"><b>₹0</b><span data-i18n="stat_cost">to use · works offline</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="quick">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="quick_eyebrow">Start where you are</span>
+          <h2 data-i18n="quick_title">Pick your district, get a plan in seconds</h2>
+          <p data-i18n="quick_sub"></p>
+        </div>
+        <div class="quick" id="quickChips"></div>
+      </div>
+    </section>
+
+    <section class="section alt" id="heritage">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="gallery_eyebrow">Heritage of North Karnataka</span>
+          <h2 data-i18n="gallery_title">The cradle of Indian temple architecture</h2>
+          <div class="ornament-slot"></div>
+          <p data-i18n="gallery_sub"></p>
+        </div>
+        <div class="gallery" id="gallery"></div>
+      </div>
+    </section>
+
+    <section class="section" id="how">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="how_eyebrow">How it works</span>
+          <h2 data-i18n="how_title">Four questions. One perfect trip.</h2>
+          <p data-i18n="how_sub"></p>
+        </div>
+        <div class="steps">
+          <div class="step"><svg class="ic"><use href="#i-locate"/></svg><h3 data-i18n="how1_t"></h3><p data-i18n="how1_d"></p></div>
+          <div class="step"><svg class="ic"><use href="#i-heart"/></svg><h3 data-i18n="how2_t"></h3><p data-i18n="how2_d"></p></div>
+          <div class="step"><svg class="ic"><use href="#i-wallet"/></svg><h3 data-i18n="how3_t"></h3><p data-i18n="how3_d"></p></div>
+          <div class="step"><svg class="ic"><use href="#i-spark"/></svg><h3 data-i18n="how4_t"></h3><p data-i18n="how4_d"></p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section alt" id="features">
+      <div class="wrap">
+        <div class="section-head">
+          <span class="eyebrow" data-i18n="feat_eyebrow">Why Sanchara</span>
+          <h2 data-i18n="feat_title">Built for real travellers in Karnataka</h2>
+        </div>
+        <div class="features">
+          <div class="feature"><div class="fi"><svg class="ic"><use href="#i-brain"/></svg></div><div><h3 data-i18n="f1_t"></h3><p data-i18n="f1_d"></p></div></div>
+          <div class="feature"><div class="fi"><svg class="ic"><use href="#i-route"/></svg></div><div><h3 data-i18n="f2_t"></h3><p data-i18n="f2_d"></p></div></div>
+          <div class="feature"><div class="fi"><svg class="ic"><use href="#i-food"/></svg></div><div><h3 data-i18n="f3_t"></h3><p data-i18n="f3_d"></p></div></div>
+          <div class="feature"><div class="fi"><svg class="ic"><use href="#i-bed"/></svg></div><div><h3 data-i18n="f4_t"></h3><p data-i18n="f4_d"></p></div></div>
+          <div class="feature"><div class="fi"><svg class="ic"><use href="#i-wallet"/></svg></div><div><h3 data-i18n="f5_t"></h3><p data-i18n="f5_d"></p></div></div>
+          <div class="feature"><div class="fi"><svg class="ic"><use href="#i-lang"/></svg></div><div><h3 data-i18n="f6_t"></h3><p data-i18n="f6_d"></p></div></div>
+        </div>
+        <div style="height:40px"></div>
+        <div class="story">
+          <div>
+            <span class="eyebrow" data-i18n="story_eyebrow">Aihole · Pattadakal · Badami</span>
+            <h2 data-i18n="story_title">Three villages. Two centuries of genius.</h2>
+            <p data-i18n="story_body"></p>
+            <button class="btn btn-gold" id="storyBtn"><span data-i18n="story_cta">Plan the Chalukyan circuit</span> <svg class="ic"><use href="#i-arrow"/></svg></button>
+          </div>
+          <div class="story-art" id="storyArt" style="color:#f3c877"></div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <div class="wrap">
+        <div class="cols">
+          <div>
+            <a class="brand" href="#/" style="color:#f3e6cf"><span id="brandMark2"></span><span><span class="brand-name">Sanchara<b>.AI</b></span><span class="brand-kn">ಸಂಚಾರ</span></span></a>
+            <p data-i18n="footer_about" style="max-width:46ch"></p>
+          </div>
+          <div>
+            <h4 data-i18n="footer_data">Data &amp; credits</h4>
+            <p>Maps © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap</a> contributors · Routing: OSRM · Weather: Open-Meteo · Photos: <a href="https://commons.wikimedia.org" target="_blank" rel="noopener">Wikimedia Commons</a> (free licences) · Icons: Lucide</p>
+            <p>Fees, timings and tariffs are indicative — please confirm locally.</p>
+          </div>
+          <div>
+            <h4 data-i18n="footer_help">Travel helplines</h4>
+            <p>112 — Emergency<br />108 — Ambulance<br />1091 — Women's helpline<br />1363 — Tourist helpline</p>
+          </div>
+        </div>
+        <div class="fine"><span>Team: ______ · Institution: ______</span><span>AI to Redesign Tourism · 25 Sep 2026</span></div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- ============ APP (results) ============ -->
+  <section class="app" id="app" aria-live="polite">
+    <div class="app-hero">
+      <div class="skyline-bg" id="appSkyline"></div>
+      <div class="wrap" id="appHero"></div>
+    </div>
+    <div class="tabs"><div class="wrap" id="tabs" role="tablist"></div></div>
+    <div class="wrap app-grid">
+      <div class="panels" id="panels"></div>
+      <aside class="map-col" id="mapCol">
+        <div class="map-box" id="map"><div class="map-status" id="mapStatus"></div></div>
+        <div class="map-legend" id="mapLegend"></div>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============ WIZARD ============ -->
+  <div class="overlay" id="wizard" role="dialog" aria-modal="true" aria-labelledby="wizTitle">
+    <div class="sheet">
+      <div class="sheet-head">
+        <span id="wizMark"></span>
+        <span class="title" id="wizTitle" data-i18n="w_title">Plan with Sanchara</span>
+        <button class="icon-btn" id="wizClose" aria-label="Close"><svg class="ic"><use href="#i-close"/></svg></button>
+      </div>
+      <div class="progress" id="wizProgress"></div>
+      <div class="sheet-body" id="wizBody"></div>
+      <div class="sheet-foot">
+        <button class="btn btn-ghost" id="wizBack"><svg class="ic"><use href="#i-chevL"/></svg> <span data-i18n="back">Back</span></button>
+        <button class="btn btn-primary" id="wizNext"><span data-i18n="next">Next</span> <svg class="ic"><use href="#i-chevR"/></svg></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ AI THINKING ============ -->
+  <div class="thinking" id="thinking" aria-live="assertive">
+    <div>
+      <div id="mandala"></div>
+      <h3 data-i18n="thinking">Crafting your journey</h3>
+      <ul class="think-steps" id="thinkSteps"></ul>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+
+  <!-- Libraries (vendored — no CDN needed) -->
+  <script src="assets/vendor/leaflet/leaflet.js"></script>
+  <!-- Data -->
+  <script src="assets/js/data/districts.js"></script>
+  <script src="assets/js/data/places.js"></script>
+  <script src="assets/js/data/food.js"></script>
+  <script src="assets/js/data/stays.js"></script>
+  <script src="assets/js/data/images.js"></script>
+  <script src="assets/js/data/karnataka-geo.js"></script>
+  <!-- AI engine -->
+  <script src="assets/js/engine/core.js"></script>
+  <script src="assets/js/engine/model-weights.js"></script>
+  <script src="assets/js/engine/recommender.js"></script>
+  <script src="assets/js/engine/planner.js"></script>
+  <script src="assets/js/engine/assistant-lite.js"></script>
+  <!-- Services & UI -->
+  <script src="assets/js/services/live.js"></script>
+  <script src="assets/js/ui/icons.js"></script>
+  <script src="assets/js/ui/art.js"></script>
+  <script src="assets/js/ui/i18n.js"></script>
+  <script src="assets/js/ui/map.js"></script>
+  <script src="assets/js/ui/wizard.js"></script>
+  <script src="assets/js/ui/results.js"></script>
+  <script src="assets/js/app.js"></script>
+</body>
+</html>

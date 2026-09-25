@@ -1,0 +1,8 @@
+{
+  "cleanUrls": true,
+  "functions": { "api/assistant.js": { "maxDuration": 20 } },
+  "headers": [
+    { "source": "/assets/(fonts|vendor|img)/(.*)", "headers": [{ "key": "Cache-Control", "value": "public, max-age=604800" }] },
+    { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+  ]
+}
